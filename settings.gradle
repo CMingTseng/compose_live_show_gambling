@@ -1,0 +1,36 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+        mavenCentral()
+        google()
+        maven {
+            url = uri('https://maven.pkg.jetbrains.space/public/p/compose/dev')
+        }
+    }
+}
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        mavenCentral()
+        google()
+        maven {
+            url = uri('https://maven.pkg.jetbrains.space/public/p/compose/dev')
+        }
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+}
+
+rootProject.name = "SimpleNews"
+include ':common'
+
+include ':android_library'
+project(":android_library").projectDir = file("./android")
+
+include ':app'
+include ':desktop'
